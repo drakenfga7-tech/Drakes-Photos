@@ -24,7 +24,10 @@ export default async function handler(req, res) {
         {
           price_data: {
             currency: 'usd',
-            product_data: { name: photo.title },
+            product_data: {
+              name: photo.title,
+              images: [`${baseUrl}${photo.preview}`],
+            },
             // Price always comes from our own data file, never from the browser.
             unit_amount: Math.round(photo.priceUsd * 100),
           },
